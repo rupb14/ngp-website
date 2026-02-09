@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helping Hands NGP</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Helping Hands NGP</h1>
+    <p>Together we make a difference</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="slider">
+    <img src="images/hero.jpg" class="slide active">
+    <img src="images/about.jpg" class="slide">
+    <img src="images/project1.jpg" class="slide">
+</div>
+
+<div class="container">
+
+    <!-- About Section -->
+    <section class="scroll-animate">
+        <h2>Who We Are</h2>
+        <p>
+            Helping Hands NGP is a non-profit organization dedicated to improving
+            lives through education, healthcare, and social development.
+            We believe small actions can create big changes.
+        </p>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="scroll-animate">
+        <h2>Our Focus Areas</h2>
+        <ul>
+            <li>📘 Education for underprivileged children</li>
+            <li>🏥 Free health camps and awareness</li>
+            <li>🌱 Environmental protection initiatives</li>
+            <li>🤝 Community development programs</li>
+        </ul>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="scroll-animate">
+        <h2>Our Impact</h2>
+        <p>
+            Over the years, we have positively impacted thousands of lives.
+        </p>
+        <ul>
+            <li>✔ 5,000+ children educated</li>
+            <li>✔ 200+ health camps organized</li>
+            <li>✔ 100+ volunteers nationwide</li>
+        </ul>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="scroll-animate">
+        <h2>Featured Projects</h2>
+
+        <h3>Education for All</h3>
+        <img src="images/project1.jpg" alt="Education Project">
+        <p>
+            Providing free learning materials, classes, and mentorship to children
+            from low-income communities.
+        </p>
+
+        <h3>Community Health Program</h3>
+        <img src="images/about.jpg" alt="Health Program">
+        <p>
+            Conducting regular health checkups and spreading awareness about
+            hygiene and nutrition.
+        </p>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="scroll-animate">
+        <h2>Get Involved</h2>
+        <p>
+            You can make a difference today. Join us as a volunteer or support
+            our mission through donations.
+        </p>
+        <a href="contact.php" class="button">Volunteer With Us</a>
+        <a href="contact.php" class="button">Donate Now</a>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Helping Hands NGP</p>
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}, 3000);
+</script>
+
+<script>
+const scrollElements = document.querySelectorAll(".scroll-animate");
+
+const elementInView = (el, offset = 100) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return elementTop <= (window.innerHeight - offset);
+};
+
+const displayScrollElement = (el) => {
+    el.classList.add("show");
+};
+
+const hideScrollElement = (el) => {
+    el.classList.remove("show");
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el)) {
+            displayScrollElement(el);
+        }
+    });
+};
+
+window.addEventListener("scroll", () => {
+    handleScrollAnimation();
+});
+</script>
+
+</body>
+</html>
